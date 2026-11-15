@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="referrer" content="no-referrer" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; connect-src https://aukchjidatlpstnwkqoz.supabase.co; img-src 'self'; base-uri 'none'; form-action 'none'" />
+    <title>Familienbudget: доступ для ассистента</title>
+    <script type="module" crossorigin src="./assets/index-C1TdifI3.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-DQV4qcW9.css">
+  </head>
+  <body>
+    <main id="app" hidden>
+      <h1>Familienbudget</h1>
+
+      <section id="signin" hidden>
+        <p>Войдите в аккаунт Familienbudget, чтобы разрешить ассистенту читать ваш бюджет.</p>
+        <form id="signin-form" novalidate>
+          <label>
+            Email
+            <input id="email" name="email" type="email" autocomplete="username" required />
+          </label>
+          <label>
+            Пароль
+            <input
+              id="password"
+              name="password"
+              type="password"
+              autocomplete="current-password"
+              required
+            />
+          </label>
+          <button type="submit">Войти</button>
+        </form>
+      </section>
+
+      <section id="totp" hidden>
+        <p>Введите код из приложения-аутентификатора.</p>
+        <form id="totp-form" novalidate>
+          <label>
+            Код
+            <input
+              id="totp-code"
+              name="code"
+              inputmode="numeric"
+              autocomplete="one-time-code"
+              maxlength="7"
+              required
+            />
+          </label>
+          <button type="submit">Подтвердить</button>
+        </form>
+      </section>
+
+      <section id="consent" hidden>
+        <p id="consent-text"></p>
+        <p class="note">
+          Доступ только на чтение: ассистент видит статьи, суммы и итоги, но ничего не меняет.
+          Отключить доступ можно, удалив коннектор в настройках Claude.
+        </p>
+        <div class="actions">
+          <button id="approve" type="button">Разрешить</button>
+          <button id="deny" type="button" class="secondary">Отказать</button>
+        </div>
+      </section>
+
+      <section id="done" hidden>
+        <p id="done-text"></p>
+      </section>
+
+      <p id="error" class="error" role="alert"></p>
+    </main>
+  </body>
+</html>
